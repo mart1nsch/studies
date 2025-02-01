@@ -1,0 +1,234 @@
+*** GIT ***
+
+//OBSERVAÇÃO: O que estiver dentro de $$ nos comandos, deve ser substituído, não faz parte do comando.
+
+** O que é **
+  - Software capaz de gerenciar versões de qualquer tipo de arquivo.
+  - Branches são ramos, ramos de modificação:
+  
+                 BRANCH
+	           /-----*-----\
+	MAIN * ----             ----* MAIN
+	           \-----*-----/
+		             BRANCH
+  - Podemos mesclar branches.
+	- Tipos de controle de versão:
+	  = Servidor (centralizado)
+		= Servidor (distribuido) = Todo computador terá uma cópia de todas as versões. Git é um desses sistemas.
+	
+	- Caracteristicas do Git:
+	  = Navegar pelo histórico.
+		= Criação de Branch.
+		= Desenvolvimento com várias branches ao mesmo tempo.
+		= Integridade.
+		= Eficiência para pequenos e grandes projetos.
+	
+	- Estados de um arquivo no Git:
+	  = Untracked (Git conhece, mas não rastreia o arquivo)
+		= Staged (Arquivo preparado para comitar)
+		= Unmodified (Arquivo não modificado)
+		= Modified (Arquivo modificado)
+		
+	- Possíveis caminhos que os estados podem fazer:
+	  = Untracked: Staged (via add).
+		= Staged: Untracked (via rm), Unmodified (via commit).
+		= Unmodified: Modified (via alteração do arquivo), Untracked (via rm).
+		= Modified: Unmodified (via desalteração do arquivo), Staged(via add).
+
+** Comandos e Funcionalidades **
+  - Clicar com o botão direito em qualquer pasta, temos a opção de abrir o Git Bash para rodar nossos comandos Git. Também funciona com o CMD.
+	+ Ver a versão do Git:
+	  "git --version"
+  
+	- Para usar o Git, primeiro precisamos configurar ele. Para isso, rodamos os comandos abaixo para definir o nome do usuário, o email, o editor de texto como o VS Code e o nome da branch padrão (usar main como padrão).
+	  + Configurar o nome:
+	    "git config --global user.name "$INFORMAR NOME$""
+	  + Configurar o email:
+	    "git config --global user.email "$INFORMAR EMAIL$""
+		+ Retorna o usuário configurado:
+		  "git config --global user.name"
+		+ Retorna o email configurado:
+		  "git config --global user.email"
+		+ Lista de configurações:
+		  "git config --list"
+		+ Definir o editor de texto como VS Code:
+		  "git config --global core.editor "code --wait""
+		+ Mudar o nome da branch principal do repositório que será usado ao dar o git init:
+		  "git config --global init.defaultbranch $NOME DA BRANCH$"
+	
+	- Criando repositórios (localmente, para ir ao servidor, depois temos que dar um push)
+	  + Lista os arquivos de uma pasta:
+		  "ls"
+		+ Lista todos os arquivos de uma pasta, inclusive ocultos:
+		  "ls -a"
+		+ Iniciar um repositório na pasta:
+		  "git init"
+		+ Ver o status dos arquivos do repositório:
+		  "git status"
+		+ Adicionar arquivo para ser rastreado pelo Git, ou seja, o Git rastrear quando o arquivo for modificado, deletado, etc.
+		  "git add $NOME ARQUIVO$"
+		+ Adicionar todos os arquivos para serem rastreados pelo Git:
+		  "git add ."
+		+ Remover o arquivo do rastreio do Git:
+		  "git rm --cached $NOME ARQUIVO$"
+		+ Remover todos os arquivos do rastreio do Git:
+		  "git rm --cached -r"
+		+ Parar de rastrear um arquivo:
+		  "git update-index --skip-worktree $NOME ARQUIVO$"
+		+ Voltar a rastrear um arquivo:
+		  "git update-index --no-skip-worktree $NOME ARQUIVO$"
+		+ Ver a origem de um repositório:
+		  "git remote -v"
+		+ Adicionar a URL remota ao repositório:
+		  "git remote add origin $URL$"
+		+ Atualizar a URL remota do repositório:
+		  "git remote set-url origin $URL$"
+	
+	- Commits
+		- Para ser possível comitar, é preciso antes dar um add nos arquivos, para que eles fiquem no status para comitar.
+	  + Para comitar:
+		  "git commit -m "$MENSAGEM DO COMMIT$""
+		+ Ver diferenças dos arquivos:
+		  "git diff"
+		+ Ver diferenças dos arquivos da área de preparação (staged) para o último commit:
+		  "git diff --cached"
+		+ Lista detalhada dos commits feitos:
+		  "git log"
+		+ Lista simplificada dos commits feitos:
+		  "git log --oneline"
+		+ Lista detalhada dos commits feitos com um número máximo de commits mostrados:
+		  "git log -$NUMERO DE COMMITS QUE DESEJA VER$"
+		+ Lista simplificada dos commits feitos com um número máximo de commits mostrados:
+		  "git log --oneline -$NUMERO DE COMMITS QUE DESEJA VER$"
+		+ Mostrar mudanças de todos os commits:
+		  "git log -p"
+		+ Mostrar apenas os arquivos que foram mudados:
+		  "git log --stat"
+		- Podemos mudar um commit, PORÉM, isto é PERIGOSO, por que o comando faz com que o commit antigo seja perdido e um novo seja criado, então muito cuidado ao usar.
+		+ Mudar a mensagem de um commit:
+		  "git commit --amend - m "$MENSAGEM DO COMMIT$""
+		+ Adicionar arquivos no último commit (os arquivos precisam estar como staged):
+		  "git commit --amend --no-edit"
+		+ Voltar os nossos arquivos da pasta para versões de outros commits:
+		  "git checkout $HASH DO COMMIT DESEJADO$"
+		+ Voltar para a versão corrente:
+		  "git checkout $NOME DA BRANCH$"
+		+ Reverter a versão do arquivo para a última comitada:
+		  "git checkout $NOME ARQUIVO$"
+		+ Reverter a versão de todos os arquivos para a última comitada:
+		  "git checkout ."
+		+ Remover os arquivos não rastreados:
+		  "git clean -f"
+		+ Reverter tudo para o último commit, não importa o estado do arquivo:
+		  "git reset --hard"
+		- Como limpar arquivos pelos seus estados:
+		  = Untracked: "git clean -f"
+			= Tracked/Modified: "git checkout $NOME ARQUIVO$"
+			= Tracked/Staged: "git rm --cached $NOME ARQUIVO$"
+			= Tracked/Modified e Tracked/Staged: "git reset --hard"
+		+ Reverter commits (Reverter o último feito):
+		  "git revert HEAD"
+		+ Reverter commits (Reverter um especifico):
+		  "git revert $HASH COMMIT$"
+		+ Unir commits:
+		  "git rebase -i HEAD~$NUMERO DE COMMITS PARA UNIR (ELE CONTA COM O HEAD, ENTÃO SE FOR COLOCADO 1, SÓ IRÁ FAZER COM O HEAD)$"
+	
+	- Ignorando arquivos para não irem ao GIT
+	  + Criar um arquivo .gitignore:
+		  "touch .gitignore"
+		- Após, entramos no arquivo e escrevemos o nome dos arquivos que não queremos que sejam rastreados, um em cada linha, exemplo: teste.txt.
+		- Podemos também dizer para que não sejam rastreados todos de um tipo só, usando o *, exemplo: *.txt
+		
+	- Clonando repositórios
+	  + Clonar localmente:
+		  "git clone $REPOSITÓRIO BASE$ $NOVO REPOSITÓRIO$"
+		+ Clonar do GitHub (Devemos pegar a URL do repositório disponível no GitHub)
+		  "git clone $URL$"
+			
+	- Enviando informações ao servidor
+	  + Enviar:
+		  "git push"
+		+ Forçar o envio:
+		  "git push --force"
+			
+	- Trazendo informações do servidor ao local
+	  + Buscar:
+		  "git pull"
+		+ Busca os dados de uma branch:
+		  "git fetch origin $NOME BRANCH$"
+		+ Trazer todas as informações do servidor sem mergear com o local:
+		  "git fetch"
+	
+	- Branches
+	  + Listar branches do repositório:
+		  "git branch"
+		+ Criar nova branch:
+		  "git branch $NOME BRANCH$"
+		+ Fazer seu repositório ir para a branch especifica:
+		  "git checkout $NOME BRANCH$"
+			"git switch $NOME BRANCH$"
+		+ Criar uma branch e mandar o repositório acessar ela imediatamente:
+		  "git checkout -b $NOME BRANCH$"
+			"git switch -c $NOME BRANCH$"
+		+ Enviar branch para o servidor:
+		  "git push --set-upstream origin $NOME BRANCH$"
+			"git push -u origin $NOME BRANCH$"
+		+ Voltar para a branch anterior:
+		  "git switch -"
+		+ Remover branch localmente:
+		  "git branch -d $NOME BRANCH$"
+		+ Forçar remoção da branch localmente:
+		  "git branch -D $NOME BRANCH$"
+		+ Remover branch do servidor:
+		  "git push --delete origin $NOME BRANCH$"
+		+ Mudar nome da branch localmente:
+		  "git branch -m $NOME ANTIGO$ $NOME NOVO$"
+		
+	- Merges
+	  - Mesclamos uma branch a branch main, ou seja, pegamos as mudanças de uma branch e colocamos as modificações dela na main (para isso, precisamos estar na branch main).
+		+ Mergear:
+		  "git merge $NOME BRANCH QUE QUER MERGEAR$"
+		+ Ver todas as branches não mergeadas:
+		  "git branch --no-merged"
+		+ Ver todas as branches mergeadas:
+		  "git branch --merged"
+		- É possível que na hora que for dar o merge, ocorram conflitos. Temos as seguintes opções caso ocorra um conflito:
+		  = Abortar o merge: "git merge --abort"
+			= Resolver os conflitos: Para isso, devemos abrir o VS Code, resolver os conflitos, salvar o arquivo, dar um "git add ." para colocar os arquivos staged e comitar. A ferramenta source control do VS Code ajuda bastante nisso.
+	
+	- Tags
+	  + Criar tag simples:
+		  "git tag $NOME TAG$"
+		+ Criar tag detalhada (preferir usar essa):
+		  "git tag -a -m "$MENSAGEM TAG$" $NOME TAG$"
+		+ Ver os detalhes de uma tag completa:
+		  "git show $NOME TAG$"
+		+ Ver todas as tags:
+		  "git tag"
+		+ Ver todas as tags com descrição:
+		  "git tag -n"
+		+ Adicionando uma tag num commit antigo:
+		  "git tag $NOME TAG$ $HASH COMMIT$"
+		+ Enviar tag ao servidor:
+		  "git push origin $NOME TAG$"
+		+ Enviar todas as tags:
+		  "git push --tags"
+		+ Navegar a um commit que tem uma determinada tag:
+		  "git checkout $NOME TAG$"
+		+ Remover uma tag:
+		  "git tag -d $NOME TAG$"
+		+ Remover a tag do servidor:
+		  "git push --delete origin $NOME TAG$"
+	
+	- Stash
+	  - Todos os comandos abaixo podem ser rodados para um stash especifico, basta colocar o nome do stash no final deles (exceto o de lista e de salvar as mudanças)
+	  + Salvar mudanças no stash:
+		  "git stash"
+		+ Ver lista de stashes:
+		  "git stash list"
+		+ Pegar o que está no stash:
+		  "git stash apply"
+		+ Aplicar e remover o stash:
+		  "git stash pop"
+		+ Somente remover:
+		  "git stash drop"
