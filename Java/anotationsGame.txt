@@ -1,0 +1,154 @@
+ *** Criar janela
+- Usar a classe JFrame que serve para isso. Primeiro importar ela com o comando "import javax.swing.JFrame;", e ai e so criar a classe usando "JFrame janela = new JFrame();".
+- Podemos definir o tamanho da janela usando o metodo setSize "janela.setSize(600, 600);".
+- Definir o titulo da janela com o metodo setTitle "janela.setTitle("Primeiro Game");".
+- Centraliza a janela no meio da tela "janela.setLocationRelativeTo(null);".
+- Apos fazer as configuracoes da janela, temos que chamar o metodo setVisible para mostrar a janela em tela "janela.setVisible(true);".
+- Para a janela fechar e o programa parar de rodar quando clicamos no X para fechar a janela, temos que usar o comando "janela.setDefaultCloseOperation(janela.EXIT_ON_CLOSE);".
+- Define a janela para nao poder ter seu tamanho alterado com "janela.setResizable(false);".
+- O JFrame funciona mais como a window para a aplicacao, nao como os cenarios, para os cenarios usar o JPanel.
+- Usamos o metodo pack() para ajustar o tamanho da window de acordo com o tamanho dos seus panels vinculados a ele "janela.pack();".
+- Adicionamos os paineis a janela usando o metodo add "janela.add(painel);"
+
+ *** Usando JPanel
+- Podemos usar o JPanel para criar nossos cenarios dentro da aplicacao.
+- Podemos usar a JPanel extendendo ela em uma classe criada por nos mesmos "public class Cenario extends JPanel".
+- O codigo abaixo cria um painel para ser mostrado na window (isto tudo dentro da classe que criamos extendendo o JPanel)
+"
+  final int tamanhoTileOriginal = 16;
+	final int escala = 3;
+	
+	final int tamanhoTile = tamanhoTileOriginal * escala;
+	final int maxColunas = 16;
+	final int maxLinhas = 12;
+	final int widthJanela = maxColunas * tamanhoTile;
+	final int heightJanela = maxLinhas * tamanhoTile;
+	
+	public Cenario() {
+		this.setPreferredSize(new Dimension(widthJanela, heightJanela));
+		this.setBackground(Color.black);
+		this.setDoubleBuffered(true);
+	}
+"
+
+ *** Fazendo o jogo rodar
+- Para fazermos o jogo rodar, implementamos a classe Runnable a classe que cria o painel "public class Cenario extends JPanel implements Runnable".
+- Quando implementamos ela, a mesma ja vem com o metodo run que ira cuidar do loop de jogo.
+- Mas, so a run sozinha nao faz nada, precisamos usar a classe Thread, que utiliza um Thread para rodar o jogo.
+- Primeiro precisamos criar uma variavel do tipo da classe Thread "Thread gameThread;".
+- Temos que criar um metodo na nossa classe do painel para comecar o jogo e dentro deste metodo teremos as chamadas da criacao de uma Thread e dar start nela (o metodo start ja chama automaticamente o metodo run, antes mencionado)
+"
+public void startGame() {
+    gameThread = new Thread(this);
+    gameThread.start();
+}
+"
+- Dentro do metodo run que vamos cuidar do loop do jogo, entao temos que criar um while "while (gameThread != null)".
+- Para o loop funcionar, devemos ter dois metodos na nossa classe do painel, update e paintComponent. chamando elas assim dentro do while
+"
+update(); // Atualiza os dados em tela
+repaint(); // Chama o metodo paintComponent
+"
+- Claro, nao vai acontecer nada se a gente nao fazer nada nesses metodos, entao temos que codar esses metodos.
+
+ *** Para atualizar as informacoes em tela, como cenario, movimento, qualquer coisa
+- Dentro do metodo paintComponent, vamos chamar a classe Graphics2D para criar nossos objetos "Graphics2D g2 = (Graphics2D)g;".
+- E com essa classe, podemos definir algumas configuracoes desse objeto que acabamos de criar
+"
+g2.setColor(Color.white);
+g2.fillRect(100, 100, tamanhoTile, tamanhoTile);
+g2.dispose();
+"
+- O metodo dispose que mostra em tela o objeto que criamos, o fillRect tem 4 parametros, o primeiro e segundo sao posicoes x e y em tela, e os dois ultimos sao o tamanho em x e y.
+
+ *** Para cuidar dos eventos de clique em teclas do teclado
+- Criaremos mais uma classe que ira cuidar para os cliques de tecla "public class Teclado implements KeyListener".
+- Quando implementamos a KeyListener, podemos cuidar de 3 eventos de clique, mas so nos interessa a keyPressed e keyReleased.
+- Quando foi pressionada uma tecla, vamos definir um atributo da classe Teclado como verdadeiro, por exemplo, se pressionarmos a tecla W, vamos colocar o atributo upPress como true.
+- E quando a tecla for solta, vamos definir este mesmo atributo como false.
+"
+public class Teclado implements KeyListener {
+	
+	public boolean upPress, downPress, leftPress, rightPress;
+
+	@Override
+	public void keyTyped(KeyEvent e) {}
+
+	@Override
+	public void keyPressed(KeyEvent e) {
+		int keyCode = e.getKeyCode();
+		
+		if (keyCode == KeyEvent.VK_W) {
+			upPress = true;
+		}
+		if (keyCode == KeyEvent.VK_S) {
+			downPress = true;
+		}
+		if (keyCode == KeyEvent.VK_A) {
+			leftPress = true;
+		}
+		if (keyCode == KeyEvent.VK_D) {
+			rightPress = true;
+		}
+	}
+
+	@Override
+	public void keyReleased(KeyEvent e) {
+		int keyCode = e.getKeyCode();
+		
+		if (keyCode == KeyEvent.VK_W) {
+			upPress = false;
+		}
+		if (keyCode == KeyEvent.VK_S) {
+			downPress = false;
+		}
+		if (keyCode == KeyEvent.VK_A) {
+			leftPress = false;
+		}
+		if (keyCode == KeyEvent.VK_D) {
+			rightPress = false;
+		}
+	}
+}
+"
+- E ai vamos criar uma instancia desta classe dentro da classe do painel "Teclado teclado = new Teclado();".
+- Dentro do construtor da classe do painel, tambem devemos colocar um event listener nos atributos da classe do painel "this.addKeyListener(teclado);".
+- Alem disso, temos que setar o painel como focavel, para que possam ser digitados comandos com o teclado usando "this.setFocusable(true);".
+
+ *** Setando o tempo que a tela e atualizada
+- Temos que setar o tempo que a tela e atualizada para que as coisas acontecam de acordo com o que esperamos, pois, no momento que esta agora, se tentarmos mexer o retangulo ele simplesmente ira desaparecer.
+- Isto ocorre por que a maquina roda o loop o mais rapido que ela pode, entao um simples toque numa tecla, dispara milhares de vezes o loop atualizado o dado em tela e fazendo sumir o objeto de tela.
+- Entao temos que setar um tempo que o jogo se atualiza.
+- Para colocarmos o jogo em 60 FPS, temos que primeiro ter uma variavel que defina quantos frames por segundo vamos ter "final int fps = 60;".
+- Apos, mudamos o nosso while para dormir, e nao rodar a cada nanos segundos, para que no final, seja 60 fps
+"
+public void run() {
+		
+	double intervaloFrames = 1000000000 / fps;
+	double proximoFrame = System.nanoTime() + intervaloFrames;
+	
+	while (gameThread != null) {
+		System.out.println("loops");
+		update(); // Atualiza os dados em tela
+		repaint(); // Chama o metodo paintComponent que esta criado ali em baixo
+		
+		try {
+			double tempoSobra = proximoFrame - System.nanoTime();
+			tempoSobra /= 1000000;
+			
+			if (tempoSobra < 0) {
+				tempoSobra = 0;
+			}
+			
+			Thread.sleep((long) tempoSobra);
+			
+			proximoFrame += intervaloFrames;
+		} catch(InterruptedException e) {
+			e.printStackTrace();
+		}
+	}
+}
+"
+ *** Criando personagens
+- Criamos uma super classe que ira ser a pai das classes como o player, inimigos, npc, etc.
+- 
