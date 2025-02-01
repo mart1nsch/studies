@@ -1,0 +1,102 @@
+.container-settings{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-settings h1{
+    margin-bottom: 20px;
+    border-bottom: 1px solid var(--color-black);
+    padding: 0 50px;
+}
+
+.container-settings{
+    display: none;
+}
+
+.container-inputs{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 30rem;
+    font-size: 20px;
+    border-bottom: 1px solid var(--color-black);
+    margin-bottom: 10px;
+}
+
+#input-time, #input-pause{
+    text-align: end;
+    border: none;
+    font-size: inherit;
+}
+
+.container-inputs input:focus{
+    outline: none;
+    box-shadow: none;
+}
+
+/* Retira as setas para os campos de número (Não funciona para o mozila) */
+.container-inputs input::-webkit-outer-spin-button,
+.container-inputs input::-webkit-inner-spin-button{
+    -webkit-appearance: none;
+}
+
+.checkbox{
+    cursor: pointer;
+    -webkit-appearance: none;
+    appearance: none;
+    height: 1.3rem;
+    width: 1.3rem;
+    background-color: var(--color-transparent);
+    border: 2px solid var(--color-black);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.checkbox:checked{
+    background-color: var(--color-checkbox-checked);
+    border: none;
+    background-image: url("../img/check.png");
+    background-size: cover;
+}
+
+.return-arrow{
+    position: absolute;
+    top: 5rem;
+    left: 10rem;
+}
+
+.return-arrow img{
+    width: 40px;
+}
+
+.buttons-container{
+    width: 30rem;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.container-button-save button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-right: 10px;
+    padding-left: 3px;
+    border-radius: 10px;
+    color: var(--color-white);
+    font-size: 15px;
+    background-color: var(--color-green);
+    border: none;
+    cursor: pointer;
+}
+
+.container-button-save button:active{
+    box-shadow: inset 2px 2px 20px var(--color-button-active);
+}
+
+.container-button-save button img{
+    width: 30px;
+}

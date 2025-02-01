@@ -1,0 +1,196 @@
+body{
+    background-color: var(--color-background-body);
+}
+
+header{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 15px;
+    margin-bottom: 30px;
+}
+
+header h1{
+    font-size: 40px;
+}
+
+.sequencia{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    text-transform: uppercase;
+    font-weight: bold;
+    width: 250px;
+}
+
+#sequencia{
+    width: 40px;
+    text-align: end;
+    margin-left: 5px;
+    overflow: hidden;
+}
+
+.btn-play-again{
+    width: 250px;
+    height: 40px;
+    font-size: 20px;
+    text-transform: uppercase;
+    font-weight: bold;
+    background-color: var(--color-green);
+    cursor: pointer;
+    border: none;
+    pointer-events: auto;
+    border-radius: 5px;
+    opacity: 0;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+th, .keyboard-letter{
+    width: 70px;
+    height: 70px;
+    border: 4px solid rgba(0, 0, 0, 0.4);
+    border-radius: 5px;
+    font-size: 40px;
+}
+
+.keyboard-letter img{
+    width: 45px;
+}
+
+.letter{
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    border: none;
+    font-size: inherit;
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+    caret-color: transparent;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    pointer-events: auto;
+}
+
+.letter:focus{
+    outline: none;
+    box-shadow: inset 0 -7px 1px 0px rgba(0, 0, 0, 0.4);
+}
+
+.container-keyboard{
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-keyboard-row{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.keyboard-letter{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2px;
+    cursor: pointer;
+    border: none;
+    background-color: var(--color-background-keyboard);
+    font-weight: bold;
+    pointer-events: auto;
+}
+
+.word-lines-disabled th{
+    background-color: var(--color-background-body-darker);
+    border: none;
+}
+
+.enter{
+    width: 218px;
+}
+
+.game-over{
+    position: absolute;
+    top: 110px;
+    right: 20%;
+    background-color: var(--color-background-keyboard);
+    width: 370px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    opacity: 0;
+}
+
+#secret{
+    margin-left: 5px;
+}
+
+@keyframes green {
+    from {
+        background-color: transparent;
+    } to {
+        background-color: var(--color-green);
+    }
+}
+
+@keyframes yellow {
+    from {
+        background-color: transparent;
+    } to {
+        background-color: var(--color-yellow);
+    }
+}
+
+@keyframes red {
+    from {
+        background-color: transparent;
+    } to {
+        background-color: var(--color-red);
+    }
+}
+
+@keyframes opacity {
+    from {
+        opacity: 0;
+    } to {
+        opacity: 1;
+    }
+}
+
+@keyframes key-green {
+    from {
+        background-color: var(--color-background-keyboard);
+    } to {
+        background-color: var(--color-green);
+    }
+}
+
+@keyframes key-yellow {
+    from {
+        background-color: var(--color-background-keyboard);
+    } to {
+        background-color: var(--color-yellow);
+    }
+}
+
+@keyframes key-red {
+    from {
+        background-color: var(--color-background-keyboard);
+    } to {
+        background-color: var(--color-red);
+    }
+}

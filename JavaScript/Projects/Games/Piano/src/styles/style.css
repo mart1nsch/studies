@@ -1,0 +1,58 @@
+@import url("./global.css");
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: rgb(186, 186, 245);
+}
+
+.teclas{
+    display: flex;
+}
+
+.teclas .white, .teclas .black{
+    cursor: pointer;
+    list-style: none;
+    user-select: none;
+    text-transform: uppercase;
+    position: relative;
+}
+
+.teclas .white{
+    width: 70px;
+    height: 230px;
+    border: 1px solid #999;
+    background-image: linear-gradient(#fff 96%, #eee 4%);
+    border-radius: 8px;
+}
+
+.teclas .black{
+    width: 44px;
+    height: 140px;
+    z-index: 2;
+    margin: 0 -22px 0 -22px;
+    border: 1px solid black;
+    background-image: linear-gradient(#000 96%, #333 4%);
+    border-radius: 0 0 5px 5px;
+    color: white;
+}
+
+.teclas span{
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    text-align: center;
+    font-family: monospace;
+    font-size: 22px;
+    font-weight: 900;
+}
+
+.teclas .white.active{
+    box-shadow: inset 5px 5px 20px rgba(0, 0, 0, 0.2);
+}
+
+.teclas .black.active{
+    box-shadow: inset 10px 10px 20px rgba(255, 255, 255, 0.2);
+}

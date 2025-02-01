@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto Slab', monospace;
+    font-size: 30px;
+    user-select: none;
+    outline: none;
+}
+
+:root{
+    --color-black: rgb(0, 0, 0);
+    --color-body: rgb(230, 230, 230);
+    --color-button: rgb(210, 210, 210);
+    --color-body-fish: rgb(255, 255, 255);
+    --color-fruit: rgb(255, 0, 0);
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: var(--color-body);
+}
+
+header{
+    position: absolute;
+    top: 0;
+    height: 15%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+header button{
+    width: 8rem;
+    height: 1.7rem;
+    border: none;
+    border-radius: 10px;
+    background-color: var(--color-button);
+    cursor: pointer;
+}
+
+.points{
+    width: 80px;
+    text-align: end;
+}
+
+.container-points{
+    display: flex;
+    overflow: hidden;
+}
+
+.container{
+    position: relative;
+    background-image: url("../img/fundo-container.jpg");
+    background-size: cover;
+    background-position: 30%;
+    width: 800px;
+    height: 600px;
+    box-shadow: 0px 0px 20px var(--color-black);
+    overflow: hidden;
+}
+
+.fish-body{
+    background-color: var(--color-body-fish);
+    position: absolute;
+    z-index: 2;
+}
+
+.fish-head{
+    background-image: url("../img/head.svg");
+    z-index: 3;
+}
+
+.fruit{
+    background-color: var(--color-fruit);
+    position: absolute;
+    border-radius: 50px;
+    border: 2px solid black;
+}

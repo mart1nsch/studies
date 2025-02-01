@@ -1,0 +1,90 @@
+@import url("./global.css");
+
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(rgb(125, 207, 125), rgb(94, 94, 206));
+}
+
+h1{
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 10px;
+}
+
+#palavra{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.palavra-letra{
+    border-bottom: 3px solid black;
+    font-size: 30px;
+    color: transparent;
+}
+
+.letra-revelada{
+    color: black;
+}
+
+#letras{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 30%;
+    height: 20%;
+}
+
+#letras div{
+    text-align: center;
+    width: 55px;
+    border: 1px solid black;
+    font-size: 40px;
+}
+
+.letra-correta{
+    background-color: green;
+}
+
+.letra-errada{
+    background-color: red;
+}
+
+#mensagem{
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background-color: black;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+}
+
+#mensagem button{
+    width: 180px;
+    height: 40px;
+    letter-spacing: 2px;
+}
+
+#mensagem-texto{
+    color: white;
+    margin-bottom: 10px;
+}
+
+#forca{
+    height: 30vh;
+    margin-bottom: 10px;
+}
+
+#forca img{
+    width: 30vh;
+}

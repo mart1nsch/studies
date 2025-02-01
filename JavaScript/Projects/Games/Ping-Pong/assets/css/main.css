@@ -1,0 +1,129 @@
+@import url('https://fonts.googleapis.com/css2?family=Sixtyfour&display=swap');
+
+@keyframes opacity {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes pisca-pisca {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Sixtyfour', monospace;
+}
+
+body{
+    background-color: black;
+    overflow: hidden;
+    height: 100vh;
+}
+
+.player{
+    width: 15px;
+    height: 80px;
+    background-color: white;
+    position: absolute;
+    z-index: 99;
+}
+
+.ball{
+    width: 15px;
+    height: 15px;
+    background-color: white;
+    position: absolute;
+    border-radius: 50px;
+    z-index: 99;
+}
+
+.container-points{
+    color: white;
+    font-size: 40px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.points{
+    width: 120px;
+}
+
+#points1{
+    text-align: end;
+    margin-right: 10px;
+}
+
+#points2{
+    margin-left: 10px;
+    text-align: start;
+}
+
+.game, .container-points{
+    opacity: 0;
+}
+
+.home{
+    color: white;
+    font-size: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 80%;
+    opacity: 0;
+    animation: opacity 5s forwards;
+}
+
+.home h2{
+    margin-top: 30px;
+    font-size: 20px;
+}
+
+.text-start{
+    animation: pisca-pisca 200ms infinite;
+}
+
+.endgame{
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 80%;
+    color: white;
+    opacity: 0;
+    animation: opacity 5s forwards;
+}
+
+.endgame-player{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+#player-win{
+    margin-right: 30px;
+}
+
+.endgame h1 {
+    font-size: 60px;
+}
+
+.text-start{
+    font-size: 20px;
+}

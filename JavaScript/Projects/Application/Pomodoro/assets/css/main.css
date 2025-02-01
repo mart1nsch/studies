@@ -1,0 +1,75 @@
+.time{
+    font-size: 100px;
+}
+
+.container-timer button{
+    width: 8rem;
+    height: 2rem;
+    border-radius: 7px;
+    border: none;
+    cursor: pointer;
+}
+
+.container-timer .button-shut{
+    background-color: var(--color-red);
+    color: var(--color-white);
+}
+
+.container-timer button:active{
+    box-shadow: inset 5px 5px 20px var(--color-button-active);
+}
+
+.line-container{
+    width: 35rem;
+    height: 3px;
+    margin-bottom: 2rem;
+    overflow: hidden;
+    background-color: var(--color-white-gray);
+}
+
+.line{
+    width: 0;
+    height: 2rem;
+    background-color: var(--color-black);
+}
+
+.container-ranking{
+    position: relative;
+    top: 30rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-ranking h1{
+    font-size: 38px;
+    border-bottom: 1px solid var(--color-black);
+    margin-bottom: 15px;
+}
+
+.container-cycles{
+    width: 12rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+    font-size: 22px;
+    border-bottom: 1px solid var(--color-black);
+}
+
+.container-timer-buttons{
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.button-pause{
+    background-color: var(--color-yellow);
+}
+
+.button-start{
+    background-color: var(--color-green);
+    color: var(--color-white);
+}
