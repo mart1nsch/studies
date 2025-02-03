@@ -1,0 +1,37 @@
+*** DOCKER ***
+
+//OBSERVAÇÃO: O que estiver dentro de $$ nos comandos, deve ser substituído, não faz parte do comando.
+
+** O que é **
+  - Não é uma máquina virtual.
+	- É uma engine de administração de containers.
+	- Um container é um processo isolado do sistema da máquina que você pode iniciar suas aplicações. Um ambiente controlado e isolado.
+	- Se baseia no LXC (Linux containers)
+	- Open Source.
+	- Sistema e container compartilham o kernel.
+	- Empacotamento de software com vários níveis de isolamento.
+	
+** O que são containers **
+  - Isolamento de processos no mesmo kernel.
+	- Sistema de arquivos isolados.
+	- Ambiente leve, portátil e encapsula tudo que é necessário para seu app.
+	
+** O que é imagem **
+  - Modelo de sistema de arquivos para criar containers.
+	- Container se baseia numa imagem.
+	- São criadas a partir de uma build.
+	- Existem repositórios de imagem (Docker HUB)
+	- São compostas por uma ou mais camadas.
+	- Apenas a última camada pode ser alterada quando um container for iniciado.
+	- Usa o AUFS.
+	- Cada mudança é uma camada.
+	
+** Comandos **
+  + Faz o pull da imagem se necessário, cria o container, inicia e manda executar:
+	  "docker run $IMAGEM$"
+	+ Mandar rodar e não deixar salvo o histórico:
+	  "docker container run --rm $IMAGEM$"
+	+ Ver os containers que estão ativos no momento:
+	  "docker container ps"
+	+ Mostrar todos os containers:
+	  "docker container ps -a"
