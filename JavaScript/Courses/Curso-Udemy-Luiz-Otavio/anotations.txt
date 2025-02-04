@@ -1,0 +1,10 @@
+** Import/Export **
+  + Exportar uma variável de um arquivo JS:
+	  "export { $NOME VARIÁVEL$ };"
+	+ Também podemos exportar colocando o export diretamente na declaração de algo:
+	  "export const nome = "Martin";"
+	  "export function soma(x, y)"
+	+ Importar uma variável de um arquivo JS:
+	  "import { $NOME VARIÁVEL$ } from "$CAMINHO ARQUIVO JS$""
+	+ Importar tudo de um arquivo JS (Isto importa um Objeto):
+	  "import * as $NOME OBJETO QUE IRÁ RECEBER AS IMPORTAÇÕES$ from "$CAMINHO ARQUIVO JS$""
