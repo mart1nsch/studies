@@ -8,3 +8,12 @@
 	  "import { $NOME VARIÁVEL$ } from "$CAMINHO ARQUIVO JS$""
 	+ Importar tudo de um arquivo JS (Isto importa um Objeto):
 	  "import * as $NOME OBJETO QUE IRÁ RECEBER AS IMPORTAÇÕES$ from "$CAMINHO ARQUIVO JS$""
+		
+** Módulos **
+  - Podemos exportar coisas e importar em outro arquivo usando módulos.
+	+ Exportar usando o module.exports:
+	  "module.exports.$NOME VARIÁVEL$ = $VALOR$"
+	  "exports.$NOME VARIÁVEL$ = $VALOR$"
+	  "exports.name = name"
+	+ Importar usando require:
+	  "const module = require("$CAMINHO ARQUIVO COM MÓDULO$")"
