@@ -1,0 +1,68 @@
+*** NodeJS ***
+
+** O que é **
+  - É uma runtime do JavaScript.
+	- Uma biblioteca utilizada por um compilador durante a execução do programa.
+	- Possibilita criar softwares em JS no lado do servidor.
+	
+** O que é NPM **
+  - Node Package Manager
+  - Gerenciador de pacotes do Node.
+	- Podemos baixar bibliotecas de terceiros pelo NPM.
+	- Executar determinados scripts do nosso programa.
+	- Os módulos externos ficam numa pasta chamada node_modules.
+	- Ela deve ser descartável, para cada instalação do projeto baixar todos os pacotes novamente.
+	
+** Comandos **
+  + Abrir caixa do node:
+	  "node"
+	+ Sair:
+	  ".exit"
+	+ Se ficar preso, pode usar:
+	  ".break"
+	- Podemos rodar código JavaScript dentro dele, igual ao inspecionar do navegador.
+	+ Rodar um arquivo usando o Node:
+	  "node $CAMINHO E NOME ARQUIVO$"
+	  "node index.js"
+	  "node .\index.js"
+		
+** O que são módulos **
+  - São scripts reaproveitáveis.
+	- São divididos em 3 categorias:
+	  = Internos: Módulos que nós desenvolvemos.
+		= Core Modules: Módulos que vem com o NodeJS.
+		= Externos: Módulos que instalamos via NPM.
+		
+** Módulos Internos **
+	- São criadas nas pastas do nosso projeto.
+	- Precisamos exportar o módulo.
+	- Usamos a instrução module.exports.
+	+ Um exemplo de método:
+	  "module.exports = {
+				somar(a, b) {
+						return a + b;
+		 		}
+		 }"
+	+ Para importar no outro arquivo, podemos fazer assim:
+	  "const { somar } = require('./modulo');
+		 console.log(somar(1, 2));"
+		
+** Importando Módulos **
+  - Podemos importar modulos usando o require no JS.
+	+ Importar:
+	  "const $NOME VARIÁVEL$ = require("$NOME MÓDULO$");"
+	  "const fs = require("fs");"
+		"const axios = require("axios");"
+		
+** Módulo FileSystem **
+  - Módulo para poder mexer com arquivos dentro do JS.
+	+ Importamos ele primeiro:
+	  "const fs = require("fs");"
+	- Para abrir um arquivo:
+	  "fs.readFile("$CAMINHO ARQUIVO$", "utf8", (err, data) => {
+		   if (err) {
+			   console.log(err);
+				 return;
+			 }
+			 console.log(data);
+		 });"
