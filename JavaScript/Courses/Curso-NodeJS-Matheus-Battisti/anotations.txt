@@ -47,6 +47,28 @@
 	  "const { somar } = require('./modulo');
 		 console.log(somar(1, 2));"
 		
+** Export e Import **
+  - Funcionalidades mais modernas de importação e exportação.
+	- Para funcionar, os arquivos precisam ter a extensão .mjs.
+	+ Exportar:
+	  "export default $NOME VARIÁVEL, FUNÇÃO, ETC.$;"
+	  "export default somar;"
+	+ Importar:
+	  "import $NOME VARIÁVEL$ from "$CAMINHO ARQUIVO COM MÓDULO$""
+	  "import $NOME VARIÁVEL$ from "./modulo.mjs";"
+		
+** Core Modules **
+  - São os módulos que vem prontos dentro do NodeJS.
+	- Resolvem alguns problemas como trabalhar com arquivos, servir aplicações, etc.
+	- Estes módulos precisam ser importados para poderem ser usados.
+		
+** Módulos Externos **
+  - Podem ser instalados via NPM.
+	- Para podermos instalar, temos que iniciar o NPM no nosso projeto com npm init.
+	- São salvos na pasta node_modules.
+	+ Instalar módulo:
+	  "npm install $NOME MÓDULO$"
+		
 ** Importando Módulos **
   - Podemos importar modulos usando o require no JS.
 	+ Importar:
@@ -66,3 +88,15 @@
 			 }
 			 console.log(data);
 		 });"
+		 
+** Ler argumentos de linha de comando **
+  - Podemos pegar dentro da lógica do JS, os argumentos passados numa linha de comando chamando o Node.
+	+ Exemplo:
+	  Chamamos o node assim: "node index.js nome=Martin"
+		Dentro do JS, podemos pegar esse argumento assim: "process.argv"
+		Então podemos jogar os argumentos numa variável com: "const args = process.argv.slice(2);"
+		Para pegar o atributo do nome: "args[0].split("=")[1]"
+		
+** Ler entrada de dados **
+  - Usamos o módulo readline e o módulo question que faz uma pergunta ao usuário.
+	- Também podemos usar o módulo inquirer que é mais facil e melhor. Ele usa Promises.
