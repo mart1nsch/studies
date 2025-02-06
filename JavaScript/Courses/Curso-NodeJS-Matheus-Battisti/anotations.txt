@@ -100,3 +100,28 @@
 ** Ler entrada de dados **
   - Usamos o módulo readline e o módulo question que faz uma pergunta ao usuário.
 	- Também podemos usar o módulo inquirer que é mais facil e melhor. Ele usa Promises.
+	
+** Event Loop **
+  - É um recurso da arquitetura do Node.
+	- O Node roda uma linha por vez e le o código de cima para baixo.
+	- Nos ajuda a evitar problemas de concorrência.
+	- Único cuidado que precisamos ter é com bloqueios no fluxo, como loops infinitos.
+	
+** Event Emitter **
+  - Se comporta como os eventos do navegador.
+	- Podemos ativar um código em alguns pontos da aplicação.
+	- É um core module chamado events.
+	- Precisamos instanciar a classe EventEmitter e usarmos seus métodos.
+	+ Podemos usar ele assim:
+	  "const EventEmitter = require('events');
+		 const eventEmitter = new EventEmitter();
+		  
+		 eventEmitter.on('start', () => {
+		 		console.log("Martin");
+		 });
+		  
+		 eventEmitter.emit('start');"
+		 
+** Sync e Async **
+  - Forma síncrona: O código espera ser totalmente executado para prosseguir.
+	- Forma assíncrona: O código continua progredindo, e em um ponto futuro obtém a resposta da execução assíncrona.
