@@ -178,3 +178,10 @@
    server.listen(port, () => {
        console.log(`Servidor rodando na porta ${port}`);
    });"
+	 
+** Rotas com Node Puro **
+  - Rotas são basicamente as páginas que acessamos nos sites.
+	
+** Módulo path **
+  - Conseguimos extrair informações sobre caminhos e arquivos.
+	- Nome do diretório, nome do arquivo, extensão do arquivo, etc.
