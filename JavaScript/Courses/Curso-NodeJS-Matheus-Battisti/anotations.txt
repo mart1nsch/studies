@@ -61,6 +61,7 @@
   - São os módulos que vem prontos dentro do NodeJS.
 	- Resolvem alguns problemas como trabalhar com arquivos, servir aplicações, etc.
 	- Estes módulos precisam ser importados para poderem ser usados.
+	- Exemplos: http (módulo para criar servidores HTTP), path (extrai informações de caminhos de arquivos), fs (leitura e escrita de arquivos), url (módulo para trabalhar com URLs).
 		
 ** Módulos Externos **
   - Podem ser instalados via NPM.
@@ -125,3 +126,55 @@
 ** Sync e Async **
   - Forma síncrona: O código espera ser totalmente executado para prosseguir.
 	- Forma assíncrona: O código continua progredindo, e em um ponto futuro obtém a resposta da execução assíncrona.
+	
+** Módulo http **
+  - Podemos criar um servidor HTTP com ele, ou seja, receber uma requisição e receber um código HTML como resposta.
+	- Método createServer para criar um servidor e método listen para determinar a porta.
+	+ Para criar um servidor básico:
+	  "const http = require('http');
+		 const port = 3000;
+		 
+		 const server = http.createServer((req, res) => {
+		 		res.write('ola, meu nome é Martin e eu tenho 23 anos');
+		 		res.end();
+		 });
+		 
+		 server.listen(port, () => {
+		 		console.log(`Servidor rodando na porta ${port}`);
+		 });"
+	- Este servidor acima, deve ser primeiro executado com o Node para ser colocado no ar. Após isso, é aberto o navegador e acessado http://localhost:3000/, ou então o número da porta que foi definido ao invés de 3000.
+	- Dentro do texto que está em res.write, também podemos colocar Tags HTML (Não é o certo).
+	+ Devemos fazer assim no nosso createServer se quisermos retornar HTML:
+	  "const server = http.createServer((req, res) => {
+		 		res.statusCode = 200;
+		 		res.setHeader('Content-Type', 'text/html');
+		 		res.end('<h1>Hello World! Segunda vez!!</h1>');
+		 });"
+		 
+** Módulo url **
+  - Serve para decompor uma URL que passamos para o método parse.
+	- Podemos resgatar host, path, search, query, protocol, etc.
+
+** Usando http e url juntas **
+  - No exemplo abaixo, usamos http e url juntas para fazer uma simples tela que, se o name é enviado, ele mostra a mensagem de bem-vindo, se não é enviado, solicita a pessoa a escrever seu nome e enviar, e ai sim acessa o seja bem-vindo.
+	"const http = require('http');
+   const port = 3001;
+   
+   const server = http.createServer((req, res) => {
+       const urlInfo = require(`url`).parse(req.url, true);
+   
+       const name = urlInfo.query.name;
+   
+       res.statusCode = 200;
+       res.setHeader('Content-Type', 'text/html');
+   
+       if(!name) {
+           res.end(`<h1>Preencha seu nome:</h1><form method="GET"><input type="text" name="name"/><input type="submit" value="Enviar"/></form>`);
+       } else {
+           res.end(`<h1>Seja bem vindo ${name}!</h1>`);
+       }
+   });
+   
+   server.listen(port, () => {
+       console.log(`Servidor rodando na porta ${port}`);
+   });"
