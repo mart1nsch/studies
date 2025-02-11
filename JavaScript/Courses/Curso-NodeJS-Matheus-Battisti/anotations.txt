@@ -12,8 +12,29 @@
 	- Executar determinados scripts do nosso programa.
 	- Os módulos externos ficam numa pasta chamada node_modules.
 	- Ela deve ser descartável, para cada instalação do projeto baixar todos os pacotes novamente.
+	- Encontramos os módulos externos no site: https://www.npmjs.com/
 	
-** Comandos **
+** Comandos NPM **
+  + Iniciar um projeto:
+	  "npm init"
+	+ Iniciar um projeto de maneira rápida:
+	  "npm init -y"
+	+ Instalar um módulo:
+	  "npm install $NOME MÓDULO$"
+	+ Instalar todos os módulos que estão na package.json:
+	  "npm install"
+	+ Instalar um módulo como somente para teste, para que este módulo não vá para produção:
+	  "npm install --save-dev $NOME MÓDULO$"
+	+ Instalar um módulo de forma global, qualquer pasta do computador irá ter acesso:
+	  "npm install -g $NOME MÓDULO$"
+	+ Atualizar todos os módulos da package.json:
+	  "npm update"
+	+ Atualizar um módulo em especifico:
+	  "npm update $NOME MÓDULO$"
+	+ Deletar um pacote:
+	  "npm uninstall $NOME MÓDULO$"
+	
+** Comandos Node **
   + Abrir caixa do node:
 	  "node"
 	+ Sair:
