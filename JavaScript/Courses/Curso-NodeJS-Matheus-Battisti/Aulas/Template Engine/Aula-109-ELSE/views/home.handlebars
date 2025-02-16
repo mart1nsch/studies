@@ -1,0 +1,11 @@
+<h1>Holaaa que tal mundooooooo</h1>
+<p>O seu nome é {{user.name}} e você tem {{user.age}} anos!</p>
+{{#if auth}}
+    <p>
+        Você está autenticado, <a href="/dashboard">clique aqui</a> para acessar a área de membros!
+    </p>
+{{else}}
+    <p>
+        Você não está logado, faça seu login <a href="/login">clicando aqui</a>
+    </p>
+{{/if}}
