@@ -206,3 +206,26 @@
 ** Módulo path **
   - Conseguimos extrair informações sobre caminhos e arquivos.
 	- Nome do diretório, nome do arquivo, extensão do arquivo, etc.
+	
+** Expess **
+  - Um framework para Node.
+	- Serve para criarmos aplicações Web.
+	- Podemos criar rotas, renderizar HTML, conectar a um banco de dados, etc.
+	- Torna a criação de Apps muito mais simples.
+	
+** Rotas **
+  - Basicamente são URLs que acessamos.
+	- Se criarmos uma rota por exemplo /produtos, podemos acessar através da URL www.nossosite.com/produtos.
+	- Quando o usuário acessar, podemos carregar diversos dados como carregar os produtos do banco de dados.
+	- São uma ponte entre o usuário e a lógica da aplicação.
+	
+** Salvar arquivo do servidor e já reiniciar o projeto **
+  - Usamos o módulo Nodemon como dependência de desenvolvimento no nosso projeto.
+	- Toda vez que salvarmos o arquivo do servidor, ele já irá atualizar os dados em tempo real.
+	+ Temos que criar um script de start dentro da package.json com o seguinte comando e ai chamamos ele no terminal com npm start:
+	  "nodemon $NOME ARQUIVO$ localhost $PORTA$"
+		
+** Middleware **
+  - São códigos que podem ser executados entre uma ação e outra.
+	- Por exemplo, verificar se o usuário está logado.
+	- Método que podemos usar para usarmos middleware é o use do Express.

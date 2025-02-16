@@ -1,0 +1,14 @@
+body{
+    background-color: gray;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 24px;
+    font-family: monospace;
+    min-height: 100vh;
+}
+
+a{
+    color: white;
+}
