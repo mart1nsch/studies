@@ -242,3 +242,10 @@
 	- Podemos criar condicionais e loops.
 	- Sintaxe limpa no front.
 	- O pacote se chama express-handlebars.
+
+** MySQL **
+  + Conectar no MySQL com o usuário root (só podemos fazer isso enquanto o xampp estiver aberto e com o MySQL com start):
+	  "mysql -u root"
+	- Para conectar o MySQL ao Node:
+	  + Instalar o driver:
+		  "npm install mysql"
