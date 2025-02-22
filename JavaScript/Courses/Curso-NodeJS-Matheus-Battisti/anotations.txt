@@ -249,3 +249,7 @@
 	- Para conectar o MySQL ao Node:
 	  + Instalar o driver:
 		  "npm install mysql"
+			
+** Connection Pool **
+  - Recurso para otimizar conexões, criando um cache e permitindo a sua reutilização.
+	- Este recurso também controla as conexões abertas, fechando assim que se tornam inativas.
