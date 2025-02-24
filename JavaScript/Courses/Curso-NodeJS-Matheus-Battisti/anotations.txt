@@ -253,3 +253,17 @@
 ** Connection Pool **
   - Recurso para otimizar conexões, criando um cache e permitindo a sua reutilização.
 	- Este recurso também controla as conexões abertas, fechando assim que se tornam inativas.
+	
+** ORM **
+  - Object Relational Mapper (ORM).
+	- Abstrai a complexidade das querys para trabalharmos com métodos.
+	- Nos concentramos na regra de negócio e não no SQL.
+	- Com Node, usamos a Sequelize.
+	- Pode trazer prejuízo de performance.
+
+** Sequelize **
+  - Uma ORM para o Node.
+	- Baseada em Promises.
+	- Integração com vários bancos de dados.
+	- Precisamos sempre ter um Model, que será reflexo de nossa tabela em uma classe.
+	- É um módulo externo.
