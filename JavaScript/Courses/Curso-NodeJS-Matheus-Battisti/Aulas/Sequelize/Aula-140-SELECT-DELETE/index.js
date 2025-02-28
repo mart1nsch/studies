@@ -22,8 +22,6 @@ app.get('/', async (req, res) => {
 
     const users = await User.findAll({ raw: true });
 
-    console.log(users);
-
     res.render('home', { users: users });
 
 });
@@ -31,6 +29,16 @@ app.get('/', async (req, res) => {
 app.get('/users/create', (req, res) => {
 
     res.render('adduser');
+
+});
+
+app.get('/users/:id', async (req, res) => {
+
+    const id = req.params.id;
+    
+    const user = await User.findOne({ where: { id: id } , raw: true});
+
+    res.render('userview', { user: user });
 
 });
 
@@ -45,6 +53,16 @@ app.post('/users/create', async (req, res) => {
     }
 
     await User.create({ name, occupation, newsletter });
+
+    res.redirect('/');
+
+});
+
+app.post('/users/delete', async (req, res) => {
+
+    const id = req.body.id;
+
+    await User.destroy({ where: { id: id } });
 
     res.redirect('/');
 

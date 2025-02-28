@@ -2,7 +2,7 @@
 <div class="container-users">
     {{#each users}}
     <div class="container-user">
-        <span>#{{this.id}} - {{this.name}} - {{this.occupation}}</span>
+        <span>#{{this.id}} - <a href="/users/{{this.id}}">{{this.name}}</a> - {{this.occupation}}</span>
     </div>
     {{/each}}
 </div>

@@ -1,0 +1,9 @@
+<div class="user-detail">
+    <h3>{{user.name}}</h3>
+    <p>Profissão: {{user.occupation}}</p>
+</div>
+<form action="/users/delete" method="post" class="container-delete">
+    <input type="hidden" name="id" value="{{user.id}}">
+    <input type="submit" value="Deletar">
+</form>
+<a href="/">Voltar</a>

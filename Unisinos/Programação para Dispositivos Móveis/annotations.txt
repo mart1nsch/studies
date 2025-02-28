@@ -1,0 +1,4 @@
+** TypeScript **
+  - Define tipo de dados na variável.
+	- POO é muito melhor que no JS.
+	

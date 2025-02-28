@@ -64,3 +64,20 @@ form{
     border-bottom: 1px solid black;
     margin-bottom: 0.5rem;
 }
+
+.user-detail{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem 0;
+}
+
+.container-delete input{
+    border: none;
+    background-color: transparent;
+    font-size: 17px;
+    text-decoration: underline;
+    color: blue;
+    cursor: pointer;
+}
