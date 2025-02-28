@@ -1,4 +1,86 @@
 ** TypeScript **
   - Define tipo de dados na variável.
 	- POO é muito melhor que no JS.
-	
+
+** Angular **
+  - Framework para front-end para criar aplicações SPA (single-page applications).
+  - Usa TypeScript como linguagem principal e é baseado em componentes.
+  
+  - Para iniciar um projeto Angular:
+    + Instalar o Angular no computador se não tiver:
+      "npm install -g @angular/cli"
+    + Criar um novo app:
+      "ng new $NOME APP$"
+    + Entrar na pasta do projeto criada:
+      "cd $NOME APP$"
+    + Iniciar o servidor:
+      "ng serve"
+      
+  - Estruturas de um projeto Angular:
+    - src/app/: Contém os componentes principais do app.
+    - app.module.ts: Define os módulos e dependências.
+    - app.component.ts: O componente principal do app.
+    
+  - Componentes:
+    - Tudo é baseado em componentes.
+    - Um componente é composto por três arquivos: HTML (interface), CSS (estilo) e TS (lógica).
+    + Para criar um novo componente:
+      "ng generate component $NOME COMPONENTE$"
+      
+  - Templates e Data Binding:
+    - Interpolação: {{$VARIÁVEL$}} exibe variáveis no HTML.
+    - Property Binding: [$ATRIBUTO$] passa valores para elementos.
+      "@Component({
+         selector: 'app-root',
+         styleUrls: ['app.component.css'],
+         template: `
+           <div [contentEditable]="isEditable"></div>
+         `,
+       })
+       export class AppComponent {
+         isEditable = false;
+       }"
+    - Event Binding: ($EVENTO$) captura eventos, como cliques.
+      "@Component({
+         selector: 'app-root',
+         template: `
+           <section (mouseover)="onMouseOver()" (mouseout)="onMouseOut()">
+             There's a secret message for you, hover to reveal 👀
+             {{ message }}
+           </section>
+         `,
+       })
+       export class AppComponent {
+         message = '';
+       
+         onMouseOver() {
+           this.message = 'Way to go 🚀';
+         }
+       
+         onMouseOut() {
+           this.message = '';
+         }
+       }"
+    
+  - Diretivas e Pipes:
+    - Diretivas Estruturais: *ngIf, *ngFor, primeiro é um IF e o segundo é um LOOP (Usado nas versões antes da v16).
+    - Pipes: date, uppercase, currency, para formatação de dados.
+    
+  - Serviços de Injeção e Dependência:
+    - Para comunicação entre componentes e acesso a APIs.
+    - Fazer requisições HTTP com HttpClientModule.
+    + Criar um serviço:
+      "ng generate service $NOME SERVICO$"
+      
+  - Roteamento:
+    + Adicionar suporte a rotas.
+      "ng generate module app-routing --flat"
+    - Configure as rotas em app-routing.module.ts.
+    
+  - Angular Template String (só funciona do Angular v16 para cima)
+    - @if: faz um if
+      "@if (isLoggedIn) {}"
+    - @else: faz o else do if
+      "@else {}"
+    - @for: faz o loop sobre alguma variável, por exemplo, um array de objetos
+      "@for (user of users; track user.id) {}"
