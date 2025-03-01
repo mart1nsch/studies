@@ -1,0 +1,29 @@
+*** Árvores ***
+
+  ** O que é **
+	  - Estrutura não linear, ela é hierárquica.
+		- (a * b) + (c / (d + e)) FIGURA1
+		- Nodos Internos: aqueles que tem um ou mais filhos.
+		- Nodos Externos: aqueles que não tem filhos.
+		- Graus de árvores se dão pelo número de filhos que aquele nodo tem. Se um nodo tem 3 filhos, ele é de grau 3, se tem 1 filho, é de grau 1.
+		- Comprimento do caminho é dado pelo número de nodos do caminho menos 1.
+		- Níveis de nodos são definidinos a partir da raiz. A raiz tem nível 1, seus filhos nível 2 e assim por diante. A altura ou profundidade de um nodo é dado pela maior nível de nodo da árvore.
+		
+	** Árvores Binárias **
+	  - Cada nodo pode conter 0, 1 ou 2 filhos no máximo, ou seja, o grau máximo é 2.
+		- Podemos utilizar ela para representar expressões matemáticas.
+		- Estritamente binária é quando todos os nodos possuem zero ou dois filhos.
+			- Podemos saber o número de nodos de uma estrutura estritamente binária fazendo o seguinte cálculo: 2 * n - 1, onde n é o número de nodos externos.
+		- Binária completa é quando todos os nodos externos estão no último nível ou penúltimo nível da árvore.
+		- Binária cheia é quando todos os nodos folhas de uma árvore estritamente binária estão no último nível da árvore.
+			- Podemos calcular o número de nodos de uma binária cheia fazendo o seguinte cálculo: 2^h - 1, onde h é a altura da árvore (o ^h representa que é expoente).
+		- Binária Degenerada é quando todos os nodos pais tem apenas um filho.
+			
+	** Árvores Binárias de Pesquisa **
+	  - Muito utilizada em aplicações que precisam de buscas eficientes.
+		- Ela restringe os nodos para que, o filho esquerdo do nodo deve possuir uma chave menor que a do próprio nodo, e o filho direito deve possuir uma chave maior que o próprio nodo. FIGURA2
+		
+	** LVR **
+	  - L = Left
+		- V = Visit
+		- R = Right
