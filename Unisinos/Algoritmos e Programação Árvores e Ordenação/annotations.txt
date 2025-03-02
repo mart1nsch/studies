@@ -27,3 +27,23 @@
 	  - L = Left
 		- V = Visit
 		- R = Right
+		
+	** Árvores AVL **
+	  - Balanceia a árvore de modo que deixe a melhor opção de eficiência para busca.
+		- Fórmula para obter o fator de um nodo n: fator(n) = h(esq(n)) - h(dir(n)), onde h é uma função que retorna a altura de um nodo, esq é uma função que retorna a raiz da subárvore esquerda de um nodo,
+		  e dir é uma função que retorna a subárvore direita de um determinado nodo.
+		- Se tivermos algum nodo com o fator diferente de -1, 0 ou 1, a árvore não é uma árvore AVL, somente árvores com nodos de fator -1, 0 e 1 são.
+		- Para transformar uma árvore em AVL, temos 4 tipos de rotação que podem ser feitas:
+			- Rotação simples à direita:
+			  - Esta rotação deve ser aplicada cada vez que uma subárvore fica com um fator positivo fora de -1, 0 e 1 e sua subárvore esquerda também possuir um fator positivo.
+				- FIGURA3, FIGURA4
+		  - Rotação simples à esquerda:
+			  - Esta rotação deve ser aplicada cada vez que uma subárvore fica com um fator negativo fora de -1, 0 e 1 e sua subárvore direita também possuir um fator negativo.
+				- FIGURA5
+			- Rotação dupla à direita:
+			  - Esta rotação deve ser aplicada cada vez que uma subárvore fica com um fator positivo fora de -1, 0 e 1 e sua subárvore esquerda fica com um fator negativo.
+				- Consiste em uma rotação simples à esquerda na subárvo esquerda do nodo e, em seguida, uma rotação simples à direita no nodo.
+				- FIGURA6
+			- Rotação dupla à esquerda:
+			  - Esta rotação deve ser aplicada cada vez que uma subárvore fica com um fator negativo fora de -1, 0 e 1 e sua subárvore direita ficar com um fator positivo.
+		- Para inserir uma árvore AVL, inserimos como a árvore de binária de pesquisa, e, após a inserção, efetuamos as devidas rotações em todos os nodos da árvore.
