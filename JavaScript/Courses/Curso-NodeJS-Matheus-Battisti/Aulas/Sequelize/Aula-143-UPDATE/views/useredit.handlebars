@@ -1,0 +1,15 @@
+<h1>Editando {{user.name}}</h1>
+<form action="/users/edit" method="POST">
+    <input type="hidden" name="id" value="{{user.id}}">
+    <div class="container-form">
+        <label for="name">Nome:</label>
+        <input type="text" name="name" value="{{user.name}}">
+    </div>
+    <div class="container-form">
+        <label for="occupation">Profissão:</label>
+        <input type="text" name="occupation" value="{{user.occupation}}">
+    </div>
+    <input type="submit" value="Confirmar" class="submit">
+</form>
+<br>
+<a href="/">Voltar</a>
