@@ -267,3 +267,11 @@
 	- Integração com vários bancos de dados.
 	- Precisamos sempre ter um Model, que será reflexo de nossa tabela em uma classe.
 	- É um módulo externo.
+	
+** MVC **
+  - Model View Controller
+	- Padrão de arquitetura de software que pode deixar nossas aplicações mais organizadas.
+	- Aplicação dividida em camadas, cada um com sua responsabilidade.
+	- Nova estrutura de arquivos e pastas.
+	- Aplicação obedece um novo fluxo.
+	- Aplicações em MVC tendem a ter uma manutenção/evolução mais fácil.
