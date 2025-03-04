@@ -275,3 +275,22 @@
 	- Nova estrutura de arquivos e pastas.
 	- Aplicação obedece um novo fluxo.
 	- Aplicações em MVC tendem a ter uma manutenção/evolução mais fácil.
+	
+	* Model *
+	  - É a camada que vamos interagir com o banco de dados.
+		- Normalmente interage com os arquivos do Controller.
+		- Responsável por resgatar, atualizar, remover e criar os dados (CRUD).
+		- É comum que cada tabela seja um Model, assim como é com o Sequelize.
+		- São quem controla a arquitetura do sistema, é fácil entender a regra de negócios analisando eles.
+		
+	* View *
+	  - Onde apresentamos os dados que estão no banco de dados.
+		- Geralmente a view interage com o Controller, que é o meio de campo entre ela e o Model.
+		- Interação com o usuário.
+		- É correto não haver lógica na view, ou o mínimo possível.
+		- Normalmente a exibição é feita através de HTML.
+		
+	* Controller *
+	  - É onde temos a interação entre Model e View.
+		- Podemos definir qual view será impressa, processar dados que foram enviados para o banco ou para a view.
+		- Os Controllers tem o código parecido com os dads rotas.
