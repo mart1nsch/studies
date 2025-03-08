@@ -39,3 +39,8 @@ x = float(x) # float
 # Random
 import random
 print(random.randrange(1, 50)) # pode pegar valor de 1 até 49
+
+# Strings
+stringA = """Pode quebrar
+linha usando 3 aspas"""
+print(stringA)
