@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:ital,wght@0,200..800;1,200..800&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Atkinson Hyperlegible Next', monospace;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-width: 100vh;
+}
+
+nav{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    border: 2px solid black;
+    position: fixed;
+    top: 1rem;
+    width: 80%;
+    font-weight: 600;
+}
+
+nav div{
+    width: 100%;
+}
+
+.nav-navegation{
+    display: flex;
+    justify-content: flex-end;
+}
+
+nav a{
+    margin-right: 2rem;
+    text-decoration: none;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 3rem;
+
+    &:hover,
+    &:focus{
+        border-bottom: 4px solid black;
+    }
+}
+
+nav h2{
+    margin-left: 2rem;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 6rem;
+}
+
+.container h1{
+    margin-bottom: 1rem;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-item{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.form-item input,
+.form-item textarea{
+    width: 25rem;
+    height: 2rem;
+    margin-bottom: 1rem;
+    padding: 0 0.5rem;
+    border: 2px solid black;
+
+    &:focus{
+        outline: none;
+        box-shadow: none;
+    }
+}
+
+.form-item textarea{
+    max-width: 25rem;
+    min-width: 25rem;
+    max-height: 20rem;
+    min-height: 2rem;
+    padding-top: 0.3rem;
+    padding-bottom: 0.3rem;
+}
+
+#submit{
+    background-color: rgb(71, 105, 199);
+    border: none;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    color: white;
+
+    &:hover,
+    &:focus{
+        background-color: rgb(51, 85, 179);
+    }
+}
