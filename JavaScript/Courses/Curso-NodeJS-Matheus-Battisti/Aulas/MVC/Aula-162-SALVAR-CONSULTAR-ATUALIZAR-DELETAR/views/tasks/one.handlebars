@@ -1,0 +1,22 @@
+<h1>{{task.title}}</h1>
+<form action="/tasks/edit" method="post">
+    <input type="hidden" name="id" value="{{task.id}}">
+    <div class="form-item">
+        <label for="title">Título</label>
+        <input type="text" name="title" id="title" placeholder="Título" value="{{task.title}}">
+    </div>
+    <div class="form-item">
+        <label for="description">Descrição</label>
+        <textarea type="text" name="description" id="description" placeholder="Descrição">{{task.description}}</textarea>
+    </div>
+    <div class="form-item">
+        <input type="submit" id="submit" value="Atualizar">
+    </div>
+</form>
+<form action="/tasks/delete" method="post">
+    <input type="hidden" name="id" value="{{task.id}}">
+    <div class="form-item">
+        <input type="submit" id="delete" value="Deletar">
+    </div>
+</form>
+<a href="/tasks" id="return">Voltar</a>

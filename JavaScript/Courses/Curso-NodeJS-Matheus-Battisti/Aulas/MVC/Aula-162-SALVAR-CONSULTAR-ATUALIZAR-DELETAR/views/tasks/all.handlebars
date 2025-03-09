@@ -1,0 +1,19 @@
+<h1>Tarefas</h1>
+<div class="container-tasks">
+    {{#each tasks}}
+    <div class="container-task">
+        <input type="hidden" name="done" value="{{this.done}}">
+        {{#if this.done}}
+            <a href="/tasks/{{this.id}}" class="finish">{{this.title}}</a>
+        {{else}}
+            <a href="/tasks/{{this.id}}">{{this.title}}</a>
+        {{/if}}
+        <form action="/tasks/done/{{this.id}}" method="post">
+            <input type="hidden" name="done" value="{{this.done}}">
+            <button type="submit">
+                <img src="/img/check.png">
+            </button>
+        </form>
+    </div>
+    {{/each}}
+</div>
