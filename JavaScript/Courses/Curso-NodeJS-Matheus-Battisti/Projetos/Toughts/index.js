@@ -3,6 +3,8 @@ const exphbs = require('express-handlebars');
 const session = require('express-session');
 const FileStore = require('session-file-store')(session);
 const flash = require('express-flash');
+const toughtsRoutes = require('./routes/toughtsRoutes');
+const ToughtsController = require('./controllers/ToughtsController');
 
 const app = express();
 
@@ -50,6 +52,11 @@ app.use((req, res, next) => {
     next();
 
 });
+
+// Routes
+app.use('/toughts', toughtsRoutes);
+
+app.get('/', ToughtsController.showToughts);
 
 conn.sync()
 .then(() => {
