@@ -1,3 +1,5 @@
+package codigo;
+
 import java.util.ArrayList;
 
 public class Main {
@@ -40,5 +42,52 @@ public class Main {
         int idadeEmInt = (int) idadeEmDouble;
         idadeEmInt = Integer.parseInt(idadeEmString);
         idadeEmString = String.valueOf(idadeEmInt);
+
+        // Classes
+        Carro carro = new Carro("Fusca");
+        System.out.println(carro.getModelo());
+
+        carro.setModelo("Gol");
+        carro.acelerar();
+        carro.acelerar();
+        carro.acelerar();
+        carro.freiar();
+        System.out.println(carro.getModelo());
+        System.out.println(carro.getVelocidade());
+    }
+}
+
+class Carro {
+    String modelo;
+    int velocidade;
+
+    public Carro(String modelo) {
+        this.modelo = modelo;
+        this.velocidade = 0;
+        System.out.println("Carro criado");
+    }
+
+    public void setModelo(String modelo) {
+        this.modelo = modelo;
+    }
+
+    public String getModelo() {
+        return modelo;
+    }
+
+    public void setVelocidade(int velocidade) {
+        this.velocidade += velocidade;
+    }
+
+    public int getVelocidade() {
+        return velocidade;
+    }
+
+    public void acelerar() {
+        setVelocidade(1);
+    }
+
+    public void freiar() {
+        setVelocidade(-1);
     }
 }

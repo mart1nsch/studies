@@ -72,3 +72,27 @@
 		- int idade = Integer.parseInt(idadeEmString);
 		- Quando queremos int para String
 		- String idade = String.valueOf(idadeEmInt);
+		
+	## Compilar um arquivo Java
+	  - Compilar um arquivo java: "javac $NOME CLASSE$"
+		- Arquivo .class é o compilado
+		- Rodar um arquivo (que seja .class): "java $NOME ARQUIVO$"
+		
+	## Classes
+	  - Um modelo que vai definir a estrutura de um objeto
+		
+	## Pacotes
+	  - São usados para organizar nossas classes e interfaces em namespaces distintos
+		- Basicamente é um agrupamento lógico das classes para agrupar elas no mesmo grupo
+		- Definimos que uma classe é de um pacote colocando isso no topo da classe: "package $NOME PACOTE$;"
+		- Pacotes são como pastas, os arquivos precisam estar na pasta daquele pacote
+		
+	## Modificadores de Acesso
+	  - Quem controla a visibilidade das nossas classes e métodos
+		- Utilizamos por exemplo pra definir se um método será visível por outras classes ou não
+		- public: são acessíveis de qualquer lugar
+		- default (não colocar um modificador): somente quem estiver no mesmo pacote consegue ver, nem os sub-pacotes conseguem, apenas o próprio pacote
+		- private: só consegue ser acessado pela própria classe, por fora não tem como
+		- protected: visível para todos do mesmo pacote, para fora desse pacote, sub-pacote, não
+		
+	
