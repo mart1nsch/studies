@@ -18,6 +18,8 @@
 		- int minhaIdade = 23;
 		- Também podemos declarar variáveis var, na qual, não precisamos definir o tipo de dados
 		- var minhaIdade = 23;
+		- Podemos fazer um valor constante numa variável usando final no começo dela
+		- final int velocidadeMaxima = 200;
 		
 	## Tipos
 		### Números Inteiros
@@ -95,4 +97,21 @@
 		- private: só consegue ser acessado pela própria classe, por fora não tem como
 		- protected: visível para todos do mesmo pacote, para fora desse pacote, sub-pacote, não
 		
-	
+	## Interfaces
+	  - Interface é um modelo que define o que a classe deve seguir, mas somente definimos a carcaça da classe
+		- Não podemos instanciar um objeto de uma Interface, ela só serve para ser a carcaça para uma classe, mas, a variável que instancia o objeto pode ser do tipo da Interface
+		
+	## Classes Abstratas
+	  - Também não podem ser instanciadas
+		- A diferença de interface para abstract é que na abstract podemos instanciar métodos e fazer o código deles, na interface não
+		
+	## Herança
+	  - Uma classe consegue herdar atributos e métodos de outra classe
+		
+	## Polimorfismo
+	  - Conceito que define que uma classe ou interface pode representar comportamentos de diferentes objetos
+		- Objetos do mesmo tipo mas com comportamentos diferentes por, por exemplo, terem suas próprias impletações dos métodos
+		- Temos uma interface de por exemplo Fruta. Podemos ter uma classe de Banana e Maça e o método comer() na interface. Ambas as frutas podem comer, mas a banana terá um jeito e a maça outro. Isso é o polimorfismo
+		
+	## Exceções
+	  - Bloco de try catch

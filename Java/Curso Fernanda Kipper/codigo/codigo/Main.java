@@ -54,6 +54,28 @@ public class Main {
         carro.freiar();
         System.out.println(carro.getModelo());
         System.out.println(carro.getVelocidade());
+
+        // Interface
+        Fruta banana = new Banana();
+        Fruta tomate = new Tomate();
+
+        banana.comer();
+        tomate.comer();
+
+        // Classes Abstratas e Herança
+        Macaco orangotango = new Orangotango("Orangotango");
+
+        orangotango.comerBanana();
+
+        // Exceções
+        Macaco chimpanze = null;
+
+        try {
+            chimpanze.comerBanana();
+        } catch(NullPointerException e) {
+            chimpanze = new Chimpanze("Chimpanzé");
+            chimpanze.comerBanana();
+        }
     }
 }
 
