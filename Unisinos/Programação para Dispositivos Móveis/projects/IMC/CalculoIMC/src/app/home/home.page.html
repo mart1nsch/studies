@@ -8,4 +8,7 @@
 
 <ion-content [fullscreen]="true">
   <ion-button expand="full" (click)="mostrarAlerta()">Clique Aqui</ion-button>
+  <ion-item *ngFor="let product of products">
+    <ion-label>{{product.name}} - R${{product.price}}</ion-label>
+  </ion-item>
 </ion-content>

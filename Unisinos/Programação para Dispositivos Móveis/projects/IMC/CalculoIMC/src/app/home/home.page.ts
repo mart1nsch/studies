@@ -11,6 +11,21 @@ export class HomePage {
 
   constructor(private alertController: AlertController) {}
 
+  products = [
+    {
+      name: "Banana",
+      price: 3.99
+    },
+    {
+      name: "Leite",
+      price: 4.59
+    },
+    {
+      name: "Arroz",
+      price: 10.99
+    },
+  ];
+
   async mostrarAlerta() {
     const alert = await this.alertController.create({
       header: "Alerta!",
