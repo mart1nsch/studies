@@ -22,6 +22,7 @@
 		- final int velocidadeMaxima = 200;
 		
 	## Tipos
+	
 		### Números Inteiros
 		  - byte: 8 bits, -128 até 127
 			- short: 16 bits, -32768 até 32767
