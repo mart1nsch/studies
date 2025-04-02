@@ -1,0 +1,4 @@
+### Biblioteca Jackson ###
+
+	## Para que serve ##
+	  - Serve para converter objetos Java em Json e vice-versa.
