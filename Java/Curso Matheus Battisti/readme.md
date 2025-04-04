@@ -9,3 +9,6 @@
 			* next() - Lê uma única palavra
 			* close() - Fecha o scanner para não ocorrer vazamentos de memória
 	
+  ## Comparar Strings
+    - Usar método equals() para ser exatamente igual.
+    - Usar método equalsIgnoreCase() para ser igual indiferente se é maiúscula ou minúscula
