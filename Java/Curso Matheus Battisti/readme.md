@@ -23,3 +23,12 @@
 	  - Parecida com a arrow function do JS
 		- Runnable tarefa = () -> System.out.println("Mostra algo em tela");
 		- Para chamar essa função, fazemos assim: tarefa.run();
+    
+  ## Labels de Loops
+    - Usados para dar o break em todos os Loops que o sistema está rodando
+    - Primeiro temos que apelidar um loop:
+      externo:
+      for () { 
+          for () { break externo; }
+      }
+    - Ao fazermos o break citado acima, ele sai de ambos os loops, sem necessidade de colocar vários breaks em cada loop.
