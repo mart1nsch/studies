@@ -32,3 +32,12 @@
           for () { break externo; }
       }
     - Ao fazermos o break citado acima, ele sai de ambos os loops, sem necessidade de colocar vários breaks em cada loop.
+		
+	## Arrays
+	  - tipo[] nomeArray = new tipo[tamanho];
+		- tipo[] nomeArray = { valores };
+		- Copiar os dados de um array para outro: int[] arrayClone = array.clone();
+		
+	## For-each
+	  - for (int numero : numeros) {}
+		- Não pode mudar o valor de um indice do array com o for-each, somente acessando pelo indice, como por exemplo o for normal
