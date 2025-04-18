@@ -4,7 +4,16 @@ public class TesteExercicios {
         //exercicio1();
 
         // Exercicio 2
-        exercicio2();
+        //exercicio2();
+
+        // Exercicio 3
+        //exercicio3();
+
+        // Exercicio 4
+        //exercicio4();
+
+        // Exercicio 5
+        //exercicio5();
     }
 
     public static void exercicio1() {
@@ -42,5 +51,36 @@ public class TesteExercicios {
         System.out.println(aluno1.getNome() + ": " + aluno1.getNotaFinal());
         System.out.println(aluno2.getNome() + ": " + aluno2.getNotaFinal());
         System.out.println(aluno3.getNome() + ": " + aluno3.getNotaFinal());
+    }
+
+    public static void exercicio3() {
+        ContaCorrente contaCorrente = new ContaCorrente("Martin Schneider", 0, 10);
+
+        System.out.println(contaCorrente.exibirSaldo());
+        contaCorrente.depositar(5);
+        System.out.println(contaCorrente.exibirSaldo());
+        contaCorrente.sacar(15);
+        System.out.println(contaCorrente.exibirSaldo());
+        contaCorrente.sacar(6);
+        System.out.println(contaCorrente.exibirSaldo());
+        contaCorrente.sacar(3);
+        System.out.println(contaCorrente.exibirSaldo());
+
+    }
+
+    public static void exercicio4() {
+        ProdutoEletronico produtoEletronico = new ProdutoEletronico("Mouse", 499.90, 1);
+
+        produtoEletronico.aplicarDesconto(50);
+        System.out.println(produtoEletronico.getPreco());
+    }
+
+    public static void exercicio5() {
+        LivroBiblioteca livroBiblioteca = new LivroBiblioteca("Código Limpo", "Robert C. Martin");
+
+        livroBiblioteca.pegarEmprestado();
+        livroBiblioteca.pegarEmprestado();
+        livroBiblioteca.devolverEmprestado();
+        livroBiblioteca.devolverEmprestado();
     }
 }
