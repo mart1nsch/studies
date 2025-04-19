@@ -41,3 +41,16 @@
 	## For-each
 	  - for (int numero : numeros) {}
 		- Não pode mudar o valor de um indice do array com o for-each, somente acessando pelo indice, como por exemplo o for normal
+		
+	## Diferença entre Classe Abstrata e Interface
+	  - Classe Abstrata:
+		  * Não pode ser instanciada diretamente.
+			* Pode conter métodos abstratos e métodos concretos.
+			* Permite a existência de construtores e atributos.
+			* Serve para definir um comportamento comum, que pode ser herdado.
+			* Uma classe pode herdar apenas uma única classe abstrata.
+		- Interface:
+		  * Um contrato que define métodos que uma classe deve implementar.
+			* Antes do Java 8, continha apenas métodos abstratos. A partir do Java 8, pode ter métodos concretos usando a palavra default ou static no início do método.
+			* Não pode ter construtores ou atributos, apenas constantes.
+			* Uma classe pode implementar múltiplas interfaces ao mesmo tempo.
