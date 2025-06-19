@@ -96,7 +96,7 @@
 		- public: são acessíveis de qualquer lugar
 		- default (não colocar um modificador): somente quem estiver no mesmo pacote consegue ver, nem os sub-pacotes conseguem, apenas o próprio pacote
 		- private: só consegue ser acessado pela própria classe, por fora não tem como
-		- protected: visível para todos do mesmo pacote, para fora desse pacote, sub-pacote, não
+		- protected: visível para todos do mesmo pacote e sub-classes, para fora desse pacote, sub-pacote, não
 		
 	## Interfaces
 	  - Interface é um modelo que define o que a classe deve seguir, mas somente definimos a carcaça da classe
@@ -116,3 +116,16 @@
 		
 	## Exceções
 	  - Bloco de try catch
+    
+  ## Package
+    - Serve para organizar nosso código em estrutura hierárquica
+    - Traz a separação de responsabilidades mais claras
+    
+  ## Collections
+    - Exporta um conjunto de classes que facilita a organização, armazenamento e manipulação de objetos
+    - Nos fornece uma série de estruturas de dados populares para podermos utilizar
+    - Tipos:
+      * Map: Estrutura chave/valor, igual a um objeto do JS, ex: { nome: "Martin" }
+      * Set: Estrutura que não permite duplicatas na lista, ex: [3, 2, 5]
+      * List: Lista ordenada que aceita elementos duplicados, ex: ["Alaire", "Karol, "Martin"]
+      * Queue: Filas usadas em processamento em ordem, ex: [1, 2, 3, 4]
