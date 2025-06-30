@@ -13,5 +13,8 @@ public class Main {
 
         frame.pack();
         frame.setVisible(true);
+
+        World world = new World();
+
     }
 }
