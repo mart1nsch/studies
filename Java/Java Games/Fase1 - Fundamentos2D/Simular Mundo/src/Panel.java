@@ -23,6 +23,7 @@ public class Panel extends JPanel {
 
         paintBackground(g);
         paintWorld(g);
+        paintPlayer(g);
     }
 
     private void paintBackground(Graphics g) {
@@ -47,5 +48,14 @@ public class Panel extends JPanel {
             x = 0;
             y += height;
         }
+    }
+
+    private void paintPlayer(Graphics g) {
+        int width = 20;
+        int height = 20;
+
+        Player player = new Player(0, 0, width, height);
+        g.setColor(Color.BLUE);
+        g.fillRect(0, 0, width, height);
     }
 }
