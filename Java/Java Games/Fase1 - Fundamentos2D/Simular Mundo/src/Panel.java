@@ -6,9 +6,14 @@ import java.io.File;
 
 public class Panel extends JPanel {
     private BufferedImage image;
+    private World world;
+    public Player player;
 
     public Panel() {
         super();
+
+        world = new World();
+        player = new Player();
 
         try {
             image = ImageIO.read(new File("fundo1.png"));
@@ -23,7 +28,7 @@ public class Panel extends JPanel {
 
         paintBackground(g);
         paintWorld(g);
-        paintPlayer(g);
+        player.paintPlayer(g);
     }
 
     private void paintBackground(Graphics g) {
@@ -35,7 +40,6 @@ public class Panel extends JPanel {
         int y = 0;
         int width = 50;
         int height = 50;
-        World world = new World();
 
         for (int i=0; i<world.world.length; i++) {
             for (int j=0; j<world.world[i].length; j++) {
@@ -48,14 +52,5 @@ public class Panel extends JPanel {
             x = 0;
             y += height;
         }
-    }
-
-    private void paintPlayer(Graphics g) {
-        int width = 20;
-        int height = 20;
-
-        Player player = new Player(0, 0, width, height);
-        g.setColor(Color.BLUE);
-        g.fillRect(0, 0, width, height);
     }
 }
