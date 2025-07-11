@@ -43,6 +43,8 @@ public class Game {
     }
 
     private void update(double deltaTime) {
+        player.reduceVelocity(deltaTime);
+
         if (kc.upPressed) {
             player.updateVelocity(deltaTime, 'u');
         }
