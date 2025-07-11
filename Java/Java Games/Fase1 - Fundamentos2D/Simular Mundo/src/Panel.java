@@ -7,13 +7,13 @@ import java.io.File;
 public class Panel extends JPanel {
     private BufferedImage image;
     private World world;
-    public Player player;
+    private Player player;
 
-    public Panel() {
+    public Panel(Player player) {
         super();
 
         world = new World();
-        player = new Player();
+        this.player = player;
 
         try {
             image = ImageIO.read(new File("fundo1.png"));

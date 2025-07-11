@@ -1,15 +1,8 @@
 import java.awt.*;
 
 public class Player extends Rectangle {
-    private int width;
-    private int height;
-    private int posX;
-    private int posY;
-    private boolean upPress = false;
-    private boolean downPress = false;
-    private boolean leftPress = false;
-    private boolean rightPress = false;
-    public double velocity;
+    private int width, height;
+    private double posX, posY, velocityX, velocityY, maxVelocityX, maxVelocityY, minVelocityX, minVelocityY, velocityGain;
 
     public Player() {
         super(0, 0, 20, 20);
@@ -17,48 +10,52 @@ public class Player extends Rectangle {
         height = 20;
         posX = 0;
         posY = 0;
-        velocity = 0;
+        velocityX = 0;
+        velocityY = 0;
+        maxVelocityX = 40;
+        maxVelocityY = 40;
+        minVelocityX = -40;
+        minVelocityY = -40;
+        velocityGain = 4;
     }
 
-    public void setKeyPressed(char key) {
-        upPress = false;
-        downPress = false;
-        leftPress = false;
-        rightPress = false;
-
-        if (key == 'u') {
-            upPress = true;
-        }
-        if (key == 'd') {
-            downPress = true;
-        }
-        if (key == 'l') {
-            leftPress = true;
-        }
-        if (key == 'r') {
-            rightPress = true;
-        }
-    }
-
-    public void paintPlayer(Graphics g, double deltaTime) {
-        updatePosition(deltaTime);
-
+    public void paintPlayer(Graphics g) {
         g.setColor(Color.BLUE);
-        g.fillRect(this.posX, this.posY, this.width, this.height);
+        g.fillRect((int) this.posX, (int) this.posY, this.width, this.height);
     }
 
-    public void updatePosition(double deltaTime) {
-        if (upPress) {
-            posY -= velocity;
+    public void updateVelocity(double deltaTime, char direction) {
+        if (direction == 'u') {
+            velocityY -= velocityGain;
         }
-        if (downPress) {
-            posY += velocity;
+        if (direction == 'd') {
+            velocityY += velocityGain;
         }
-        if (leftPress) {
-            posX -= velocity;
+        if (direction == 'l') {
+            velocityX -= velocityGain;
         }
-        if (rightPress) {
-            posX += velocity;
+        if (direction == 'r') {
+            velocityX += velocityGain;
         }
+
+        if (velocityX > maxVelocityX) {
+            velocityX = maxVelocityX;
+        }
+        if (velocityY > maxVelocityY) {
+            velocityY = maxVelocityY;
+        }
+        if (velocityX < minVelocityX) {
+            velocityX = minVelocityX;
+        }
+        if (velocityY < minVelocityY) {
+            velocityY = minVelocityY;
+        }
+
+        updatePosition(deltaTime);
+    }
+
+    private void updatePosition(double deltaTime) {
+        posX += velocityX * deltaTime;
+        posY += velocityY * deltaTime;
     }
 }

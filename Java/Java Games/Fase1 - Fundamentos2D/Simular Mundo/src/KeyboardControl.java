@@ -2,10 +2,13 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 public class KeyboardControl implements KeyListener {
-    private Player player;
+    boolean upPressed, downPressed, leftPressed, rightPressed;
 
-    public KeyboardControl(Player p) {
-        this.player = p;
+    public KeyboardControl() {
+        upPressed = false;
+        downPressed = false;
+        leftPressed = false;
+        rightPressed = false;
     }
 
     @Override
@@ -15,13 +18,33 @@ public class KeyboardControl implements KeyListener {
 
     @Override
     public void keyPressed(KeyEvent e) {
+        if (e.getKeyCode() == KeyEvent.VK_W) {
+            upPressed = true;
+        }
         if (e.getKeyCode() == KeyEvent.VK_S) {
-            player.setKeyPressed('d');
+            downPressed = true;
+        }
+        if (e.getKeyCode() == KeyEvent.VK_A) {
+            leftPressed = true;
+        }
+        if (e.getKeyCode() == KeyEvent.VK_D) {
+            rightPressed = true;
         }
     }
 
     @Override
     public void keyReleased(KeyEvent e) {
-
+        if (e.getKeyCode() == KeyEvent.VK_W) {
+            upPressed = false;
+        }
+        if (e.getKeyCode() == KeyEvent.VK_S) {
+            downPressed = false;
+        }
+        if (e.getKeyCode() == KeyEvent.VK_A) {
+            leftPressed = false;
+        }
+        if (e.getKeyCode() == KeyEvent.VK_D) {
+            rightPressed = false;
+        }
     }
 }
